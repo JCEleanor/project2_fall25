@@ -1,14 +1,14 @@
 CC=gcc
 CFLAGS=-g -Wall -std=c11
 DEPS = types.h
-OBJ = otherCommands.o mkdirSplitpath.o 
+OBJ = mkdirSplitpath.o 
 
 .DEFAULT_GOAL := main
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: main.c $(OBJ)
+main: main.c $(OBJ) otherCommandsDifferentVersions/otherCommands_mac_arm64.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
