@@ -1,0 +1,19 @@
+# Ignore object files
+*.o
+
+# Ignore the compiled executable
+main
+
+# Ignore user-generated test outputs
+mytest*.out
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore common editor temporary files
+*~
+*.swp
+*.swo
+
+# Ignore debug symbols
+*.dSYM/
