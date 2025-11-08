@@ -6,7 +6,7 @@ In this project, you will be simulating a Unix file system using a tree data str
 
 We have seen a lot of useful commands so far, such as: **mkdir**, **rmdir**, **ls**, **pwd**, and **cd**. As we begin to study C, it turns out that there is an interesting application of a data structure called a _tree_ which allows us to simulate these commands in code. Though this project is only in C, it will be a good review for your Unix knowledge. For simplicity, we won't be implementing flags on commands.
 
-A tree is a data structure which you'll see in *Data Structures & Algorithms*, *Discrete Math*, and again in *Algorithms*. For more on trees and dynamic structures, refer to the course textbook sections 2.10-2.13 (Wang, Systems Programming in Unix/Linux). In this project, you are given a starter code, which provides type definitions and helper functions to help you get started.
+A tree is a data structure which you'll see in _Data Structures & Algorithms_, _Discrete Math_, and again in _Algorithms_. For more on trees and dynamic structures, refer to the course textbook sections 2.10-2.13 (Wang, Systems Programming in Unix/Linux). In this project, you are given a starter code, which provides type definitions and helper functions to help you get started.
 
 Your task on this project is to implement the **mkdir** command which will modify a tree that simulates a Unix file system tree, where nodes represent files or directories.
 
@@ -33,6 +33,7 @@ The program prompt is output to stderr. So, if you want to redirect input from a
 ```
 ./main < test01.in 2>/dev/null > output.txt
 ```
+
 You can use this apprach to compare your output to the expected outputs provided in the test_cases directory. Example:
 Run your implementation as:
 
@@ -54,6 +55,7 @@ struct NODE {
     struct NODE* parentPtr;
 };
 ```
+
 The fileType field should be set to 'F' for regular files and to 'D' for directories. Each file and directory has a name, which is at most 63 characters long (note that we need the NULL char for the end). If the node represents a directory and it has files or other directories in it, the **childPtr** would point to the first file or directory created in it. The order of creation would dictate the order of the children. In order to traverse the children nodes, one needs to follow the sibling pointers, **siblingPtr**, starting with the first child's siblingPtr. Each file or directory also has a pointer to its unique parent. Note that only the root directory has its parentPtr set to NULL (see the initialize() function in main.c).
 
 If we run the simulator with the following commands:
@@ -69,6 +71,7 @@ touch f3.txt
 tree
 quit
 ```
+
 we get the following output:
 
 ```
@@ -93,7 +96,7 @@ The nodes of the tree for this directory structure are shown below:
 
 ## Requirements for the splitPath() function
 
-The function splitPath() with the following signature gets the complete path string  (relative or absolute) to a file or directory as input:
+The function splitPath() with the following signature gets the complete path string (relative or absolute) to a file or directory as input:
 
 ```
 struct NODE* splitPath(char* pathName, char* baseName, char* dirName)
@@ -108,6 +111,7 @@ splitPath() should print the following message in the **standard output** (note 
 ```
 ERROR: directory <DIRECTORY> does not exist
 ```
+
 The directory name that is printed in the error message must be the first non-existent directory when the path is traversed from the root directory.
 
 **splitPath() should return NULL in all ERROR cases**
@@ -118,7 +122,7 @@ The directory name that is printed in the error message must be the first non-ex
 
 ## Requirements for the mkdir() function
 
-The mkdir() function should make a call to the splitPath() function to get the target directory name as **baseName**. It should setup the strings to hold **baseName** and **dirName** before the call to the splitPath() function. Note that in implementing the mkdir() function you can ignore the **dirName** string as everything you need is in **baseName** and in the return value of the splitPath() function, which is the node structure representing the parent directory of the target directory to be created. You should allocate memory for a new tree node for the directory to be created. You should also check whether the target directory already exists in the current directory and print out an error message accordingly in the standard output (see the **Output Format** section below). If the user does not specify any input to the mkdir command, the pathName string will just be "/" and this should result in the error message "MKDIR ERROR: no path provided" in the standard output. If there is no error, the directory node should be created with its fields set correctly, e.g., fileType set to 'D', parentPtr set to the return value of splitPath() and childPtr and sblingPtr set to NULL, and the newly created node should be added as the sibling of the last file/directory created in that parent directory (if it is the first child, then the childPtr of the parent should be set). Upon successful completion, the message "MKDIR SUCCESS: node \<NODE\> successfully created" should be printed on standard output with \<NODE\> as the **pathName** input of the mkdir() function. 
+The mkdir() function should make a call to the splitPath() function to get the target directory name as **baseName**. It should setup the strings to hold **baseName** and **dirName** before the call to the splitPath() function. Note that in implementing the mkdir() function you can ignore the **dirName** string as everything you need is in **baseName** and in the return value of the splitPath() function, which is the node structure representing the parent directory of the target directory to be created. You should allocate memory for a new tree node for the directory to be created. You should also check whether the target directory already exists in the current directory and print out an error message accordingly in the standard output (see the **Output Format** section below). If the user does not specify any input to the mkdir command, the pathName string will just be "/" and this should result in the error message "MKDIR ERROR: no path provided" in the standard output. If there is no error, the directory node should be created with its fields set correctly, e.g., fileType set to 'D', parentPtr set to the return value of splitPath() and childPtr and sblingPtr set to NULL, and the newly created node should be added as the sibling of the last file/directory created in that parent directory (if it is the first child, then the childPtr of the parent should be set). Upon successful completion, the message "MKDIR SUCCESS: node \<NODE\> successfully created" should be printed on standard output with \<NODE\> as the **pathName** input of the mkdir() function.
 
 ## Input Format
 
@@ -129,6 +133,7 @@ Your program will be tested with several inputs where each input is a sequence o
 ## Output Format
 
 Your **mkdir** implementation should print the following messages to stdout in the exact following format in each respective scenario:
+
 ```
 MKDIR ERROR: directory <DIRECTORY> already exists
 // or
@@ -138,6 +143,7 @@ MKDIR SUCCESS: node <NODE> successfully created
 ```
 
 In addition, your **splitPath** implementation should print the following error message to the stdout in the exact following format when the path contains a reference to a non existing parent directory:
+
 ```
 ERROR: directory <DIRECTORY> does not exist
 ```
@@ -147,6 +153,7 @@ ERROR: directory <DIRECTORY> does not exist
 ### Sample Execution 1
 
 Input
+
 ```
 mkdir /a
 mkdir /b
@@ -154,6 +161,7 @@ quit
 ```
 
 Output
+
 ```
 MKDIR SUCCESS: node /a created
 MKDIR SUCCESS: node /b created
@@ -162,6 +170,7 @@ MKDIR SUCCESS: node /b created
 ### Sample Execution 2
 
 Input
+
 ```
 mkdir /a/b
 mkdir /a
@@ -170,6 +179,7 @@ quit
 ```
 
 Output
+
 ```
 ERROR: directory a does not exist
 MKDIR SUCCESS: node /a successfully created
@@ -179,6 +189,7 @@ MKDIR SUCCESS: node /a/b successfully created
 ### Sample Execution 3
 
 Input
+
 ```
 mkdir a/b
 mkdir a
@@ -187,6 +198,7 @@ quit
 ```
 
 Output
+
 ```
 ERROR: directory a does not exist
 MKDIR SUCCESS: node a successfully created
@@ -196,6 +208,7 @@ MKDIR SUCCESS: node a/b successfully created
 ### Sample Execution 4
 
 Input
+
 ```
 mkdir a
 mkdir b
@@ -203,6 +216,7 @@ quit
 ```
 
 Output
+
 ```
 MKDIR SUCCESS: node a successfully created
 MKDIR SUCCESS: node b successfully created
@@ -255,3 +269,8 @@ You can also clone your repo and work on it and push the updates from different 
 **Submission on Gradescope:**
 
 After you are logged in to your github account in a browser, if you follow the Gradescope assignment page for this project from Canvas and try to upload a submission, you will be able to select the Github submission options and select your private repository for this project to submit your solution on Gradescope.
+
+## NOTES
+
+initialization error:
+make sure to initialize all the variables to prevent autograder on gradescode to timeout

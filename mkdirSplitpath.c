@@ -13,6 +13,8 @@ void mkdir(char pathName[])
 
     char dirName[128];
     char baseName[128];
+    dirName[0] = '\0';
+    baseName[0] = '\0';
     struct NODE *parentNode = splitPath(pathName, baseName, dirName);
 
     if (parentNode == NULL)
