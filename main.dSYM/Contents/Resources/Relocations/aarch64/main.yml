@@ -2,18 +2,18 @@
 triple:          'arm64-apple-darwin'
 binary-path:     main
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _findCMD, symObjAddr: 0x0, symBinAddr: 0x100002408, symSize: 0x98 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _findCMD, symObjAddr: 0x0, symBinAddr: 0x100002400, symSize: 0x98 }
   - { offsetInCU: 0x4D, offset: 0x4D, size: 0x8, addend: 0x0, symName: _cmd, symObjAddr: 0x7B0, symBinAddr: 0x100008000, symSize: 0x0 }
   - { offsetInCU: 0x73, offset: 0x73, size: 0x8, addend: 0x0, symName: _root, symBinAddr: 0x100008060, symSize: 0x0 }
   - { offsetInCU: 0xDE, offset: 0xDE, size: 0x8, addend: 0x0, symName: _cwd, symBinAddr: 0x100008058, symSize: 0x0 }
-  - { offsetInCU: 0xE7, offset: 0xE7, size: 0x8, addend: 0x0, symName: _findCMD, symObjAddr: 0x0, symBinAddr: 0x100002408, symSize: 0x98 }
-  - { offsetInCU: 0x11D, offset: 0x11D, size: 0x8, addend: 0x0, symName: _initialize, symObjAddr: 0x98, symBinAddr: 0x1000024A0, symSize: 0x80 }
-  - { offsetInCU: 0x132, offset: 0x132, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x118, symBinAddr: 0x100002520, symSize: 0x1C8 }
-  - { offsetInCU: 0x188, offset: 0x188, size: 0x8, addend: 0x0, symName: _menu, symObjAddr: 0x308, symBinAddr: 0x100002710, symSize: 0x1C }
-  - { offsetInCU: 0x19D, offset: 0x19D, size: 0x8, addend: 0x0, symName: _printTree, symObjAddr: 0x324, symBinAddr: 0x10000272C, symSize: 0x64 }
-  - { offsetInCU: 0x1C1, offset: 0x1C1, size: 0x8, addend: 0x0, symName: _printHelper, symObjAddr: 0x388, symBinAddr: 0x100002790, symSize: 0x310 }
-  - { offsetInCU: 0x2A5, offset: 0x2A5, size: 0x8, addend: 0x0, symName: _quit, symObjAddr: 0x698, symBinAddr: 0x100002AA0, symSize: 0x8 }
-  - { offsetInCU: 0x26, offset: 0x303, size: 0x8, addend: 0x0, symName: _mkdir, symObjAddr: 0x0, symBinAddr: 0x100002AA8, symSize: 0x1F0 }
-  - { offsetInCU: 0x97, offset: 0x374, size: 0x8, addend: 0x0, symName: _mkdir, symObjAddr: 0x0, symBinAddr: 0x100002AA8, symSize: 0x1F0 }
-  - { offsetInCU: 0x11E, offset: 0x3FB, size: 0x8, addend: 0x0, symName: _splitPath, symObjAddr: 0x1F0, symBinAddr: 0x100002C98, symSize: 0x33C }
+  - { offsetInCU: 0xE7, offset: 0xE7, size: 0x8, addend: 0x0, symName: _findCMD, symObjAddr: 0x0, symBinAddr: 0x100002400, symSize: 0x98 }
+  - { offsetInCU: 0x11D, offset: 0x11D, size: 0x8, addend: 0x0, symName: _initialize, symObjAddr: 0x98, symBinAddr: 0x100002498, symSize: 0x80 }
+  - { offsetInCU: 0x132, offset: 0x132, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x118, symBinAddr: 0x100002518, symSize: 0x1C8 }
+  - { offsetInCU: 0x188, offset: 0x188, size: 0x8, addend: 0x0, symName: _menu, symObjAddr: 0x308, symBinAddr: 0x100002708, symSize: 0x1C }
+  - { offsetInCU: 0x19D, offset: 0x19D, size: 0x8, addend: 0x0, symName: _printTree, symObjAddr: 0x324, symBinAddr: 0x100002724, symSize: 0x64 }
+  - { offsetInCU: 0x1C1, offset: 0x1C1, size: 0x8, addend: 0x0, symName: _printHelper, symObjAddr: 0x388, symBinAddr: 0x100002788, symSize: 0x310 }
+  - { offsetInCU: 0x2A5, offset: 0x2A5, size: 0x8, addend: 0x0, symName: _quit, symObjAddr: 0x698, symBinAddr: 0x100002A98, symSize: 0x8 }
+  - { offsetInCU: 0x26, offset: 0x303, size: 0x8, addend: 0x0, symName: _mkdir, symObjAddr: 0x0, symBinAddr: 0x100002AA0, symSize: 0x1F8 }
+  - { offsetInCU: 0x97, offset: 0x374, size: 0x8, addend: 0x0, symName: _mkdir, symObjAddr: 0x0, symBinAddr: 0x100002AA0, symSize: 0x1F8 }
+  - { offsetInCU: 0x11E, offset: 0x3FB, size: 0x8, addend: 0x0, symName: _splitPath, symObjAddr: 0x1F8, symBinAddr: 0x100002C98, symSize: 0x33C }
 ...
